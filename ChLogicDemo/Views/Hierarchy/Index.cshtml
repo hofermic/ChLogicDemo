@@ -1,0 +1,21 @@
+﻿@model IEnumerable<ChLogicDempo.Models.Manager>
+
+@{
+    ViewBag.Title = "Hierarchy";
+}
+
+<h2 class="">Hierarchy</h2>
+<hr/>
+<h3 class="text-primary">Org:</h3>
+@foreach (var manager in Model)
+{
+    <div style="margin-left: 15px;">
+        <h4 class="text-info">@manager.FirstName @manager.LastName:</h4>
+        <ul style="margin-left: 15px;">
+            @foreach (var employee in manager.Employees)
+            {
+                <li class="text-secondary">@employee.FirstName @employee.LastName</li>
+            }
+        </ul>
+    </div>
+}
